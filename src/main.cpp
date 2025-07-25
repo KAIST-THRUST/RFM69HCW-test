@@ -39,7 +39,7 @@
 // --------
 // Define the pins used for CS, IRQ, and RST.
 #define RFM69_CS      10
-#define RFM69_IRQ     2
+#define RFM69_IRQ     digitalPinToInterrupt(2)
 #define RFM69_RST     9
 // #######################################################
 
@@ -72,9 +72,9 @@ void setup() {
 
   // Manual reset of the radio module
   pinMode(RFM69_RST, OUTPUT);
-  digitalWrite(RFM69_RST, LOW);
-  delay(10);
   digitalWrite(RFM69_RST, HIGH);
+  delay(10);
+  digitalWrite(RFM69_RST, LOW);
   delay(10);
 
   // Initialize the radio driver
